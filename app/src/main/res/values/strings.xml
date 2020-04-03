@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">Health Tracker</string>
+    <string name="app_name">nCov Health Tracker</string>
+
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="country">Philippines</string>
+
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
+
+    <string name="google_login">LOGIN WITH GOOGLE</string>
+    <string name="facebook_login">LOGIN WITH FACEBOOK</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="homepage">Homepage </string>
+    <string name="infection">Infection</string>
+    <string name="journal">Journal</string>
+    <string name="vaccine">Vaccine</string>
+    <string name="travel">Travel</string>
 </resources>

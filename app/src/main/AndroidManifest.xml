@@ -9,13 +9,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <service
+            android:name=".service.GovernmentService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".service.AlertService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".service.InfectionService"
+            android:enabled="true"
+            android:exported="true" />
+
+
+        <activity android:name=".activities.UserActivity" />
+        <activity android:name=".activities.TravelActivity" />
+        <activity android:name=".activities.VaccineActivity" />
+        <activity android:name=".activities.JournalActivity" />
+        <activity android:name=".activities.InfectionActivity" />
+        <activity android:name=".activities.HomepageActivity" />
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
