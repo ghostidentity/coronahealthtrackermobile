@@ -6,34 +6,44 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.Auth
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.SignInButton
+import com.google.android.gms.common.api.GoogleApiClient
 import me.mtagab.ncov.R
+
 
 class MainActivity : AppCompatActivity() {
 
     private val TAG = "health_main"
+    private var googleApiClient: GoogleApiClient? = null
+    private val RC_SIGN_IN = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val google_login = findViewById<Button>(R.id.google_login)
-        val facebook_login = findViewById<Button>(R.id.facebook_login)
 
+        var signInButton: SignInButton = findViewById(R.id.sign_in_button)
         val register = findViewById<Button>(R.id.register)
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
 
-        google_login.setOnClickListener{
-            val intent = Intent(this, UserActivity::class.java)
-            startActivity(intent)
+        val gso =
+            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build()
+        googleApiClient = GoogleApiClient.Builder(this)
+            .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+            .build()
+
+        signInButton.setOnClickListener {
+            val intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient)
+            startActivityForResult(intent, RC_SIGN_IN)
         }
 
-        facebook_login.setOnClickListener{
-            val intent = Intent(this, UserActivity::class.java)
-            startActivity(intent)
-        }
 
-        register.setOnClickListener{
+        register.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
