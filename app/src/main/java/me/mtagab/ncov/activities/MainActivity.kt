@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -24,15 +25,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var signInButton: SignInButton = findViewById(R.id.sign_in_button)
-        val register = findViewById<Button>(R.id.register)
+        val main = findViewById<TextView>(R.id.application_title)
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
 
-        val gso =
-            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build()
+        val gso =  GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestEmail()
+                    .requestProfile()
+                    .build()
+
         googleApiClient = GoogleApiClient.Builder(this)
             .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
             .build()
@@ -42,9 +44,8 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, RC_SIGN_IN)
         }
 
-
-        register.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
+        main.setOnClickListener {
+            val intent = Intent(this, UserActivity::class.java)
             startActivity(intent)
         }
 
