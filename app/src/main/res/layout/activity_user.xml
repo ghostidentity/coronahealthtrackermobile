@@ -7,12 +7,13 @@
     tools:context=".activities.UserActivity">
 
     <LinearLayout
-        android:layout_width="370dp"
-        android:layout_height="729dp"
+        android:layout_width="0dp"
+        android:layout_height="673dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,65 +38,84 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
-            <Button
+            <ImageView
                 android:id="@+id/homepage"
-                style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/homepage"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                app:srcCompat="@android:drawable/sym_def_app_icon" />
 
-            <Button
+            <ImageView
                 android:id="@+id/infection"
-                style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/infection"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                app:srcCompat="@android:drawable/sym_def_app_icon" />
 
-            <Button
-                android:id="@+id/journal"
-                style="@style/Widget.AppCompat.Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/journal"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-
-            <Button
+            <ImageView
                 android:id="@+id/vaccine"
-                style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/vaccine"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                app:srcCompat="@android:drawable/sym_def_app_icon" />
 
-            <Button
-                android:id="@+id/travel"
-                style="@style/Widget.AppCompat.Button"
+            <ImageView
+                android:id="@+id/location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/travel"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+            <ImageView
+                android:id="@+id/health"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="2dp"
+                app:srcCompat="@android:drawable/sym_def_app_icon" />
 
         </LinearLayout>
 
-        <FrameLayout
+        <fragment
+            android:id="@+id/fragment"
+            android:name="me.mtagab.ncov.fragments.homepage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Child Container" />
-        </FrameLayout>
+        <fragment
+            android:id="@+id/fragment2"
+            android:name="me.mtagab.ncov.fragments.health"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <fragment
+            android:id="@+id/fragment3"
+            android:name="me.mtagab.ncov.fragments.infection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <fragment
+            android:id="@+id/fragment4"
+            android:name="me.mtagab.ncov.fragments.journal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <fragment
+            android:id="@+id/fragment5"
+            android:name="me.mtagab.ncov.fragments.vaccine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".activities.MainActivity">
 
     <TextView
         android:id="@+id/application_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="56dp"
         android:fontFamily="@font/pridi_extralight"
         android:text="@string/app_name"
         android:textSize="24sp"
@@ -20,32 +21,72 @@
         tools:text="@string/app_name" />
 
     <TextView
-        android:id="@+id/country"
+        android:id="@+id/organization"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/pridi_extralight"
-        android:text="@string/country"
+        android:hint="organization"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/application_title"
-        tools:text="@string/country" />
+        app:layout_constraintTop_toBottomOf="@+id/application_title" />
 
     <LinearLayout
-        android:layout_width="346dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="356dp"
+        android:layout_width="324dp"
+        android:layout_height="241dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/application_title">
+        app:layout_constraintTop_toBottomOf="@+id/organization"
+        app:layout_constraintVertical_bias="0.14">
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
+        <EditText
+            android:id="@+id/username"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/pridi_extralight"
+            android:hint="username"
+            android:inputType="textPersonName" />
 
-        </com.google.android.gms.common.SignInButton>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/pridi_extralight"
+            android:hint="password"
+            android:inputType="textPassword" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pridi_extralight"
+            android:text="@string/login" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pridi_extralight"
+            android:text="@string/register" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pridi_extralight"
+            android:text="login denied" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
